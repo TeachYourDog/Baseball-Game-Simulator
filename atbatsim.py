@@ -3,7 +3,7 @@ import random
 
 #Hitter, Pitcher and League probability of strikeouts
 hitodds=.230
-pitchodds=.40
+pitchodds=.60
 leagueodds=.50
 
 
@@ -22,7 +22,7 @@ def simulate(n):
     trials=[]
     for i in range(n):
         trials.append(atbat())
-    return(1-(sum(trials)/n))
+    return(sum(trials)/n)
 
 
 
