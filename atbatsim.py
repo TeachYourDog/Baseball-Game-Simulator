@@ -1,5 +1,11 @@
 import random
+import time
 
+
+
+trials=10000
+
+#Probabilities will be calculated using actual data sets, placeholders for now
 #Hitter, Pitcher and League probability of strikeouts
 hkodds=.210
 pkodds=.24
@@ -62,16 +68,16 @@ def hit():
         return hits
 
 
-#simulates at bats n number of times, returning probability of hits
-def hitsim(n):
-    trials=[]
-    for i in range(n):
-        trials.append(hit())
-    return(sum(trials)/n)
+def atbatsim(n):
+    x=ksim(n)*100
+    y=bbsim(n)*100
+    test=random.randint(1,101)
+    if test <= y:
+        return "walk"
+    elif test > x+y:
+        return "bip"
+    else:
+        return "strikeout"
 
-
-x=ksim(100000)
-y=bbsim(100000)
-z=hitsim(100000)
-
-print(x+y+z)
+for i in range(1,100):
+    print(atbatsim(1000))
