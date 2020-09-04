@@ -19,15 +19,15 @@ h_single_odds=.10
 p_single_odds=.1
 l_single_odds=.1391
 
-h_double_odds=.1
+h_double_odds=0
 p_double_odds=.1
 l_double_odds=.0457
 
-h_triple_odds=.1
+h_triple_odds=0
 p_triple_odds=.1
 l_triple_odds=.0004
 
-h_hr_odds=.1
+h_hr_odds=0
 p_hr_odds=.1
 l_hr_odds=.0363
 
@@ -83,6 +83,8 @@ def atbatoutcomes(n):
     else:
         return "strikeout"
 
+
+#BETTER WAY TO DO PROBABILITY DISTRIBUTIONS????????
 def bipsim():
     a=single_odds=(h_single_odds*(p_single_odds/l_single_odds))*100
     b=double_odds=(h_double_odds*(p_double_odds/l_double_odds))*100
@@ -91,24 +93,25 @@ def bipsim():
     biptest=random.randint(1,101)
     if biptest <= a:
         return "single"
-    elif a < biptest <= b:
+    elif a < biptest <= (a+b):
         return "double"
-    elif b < biptest <= c:
+    elif (a+b) < biptest <= (a+b+c):
         return "triple"
-    elif c < biptest <= d:
+    elif (a+b+c) < biptest <= (a+b+c+d):
         return "homerun"
-    else:
-        return "out"
+    elif (a+b+c+d) < biptest:
+        return "field out"
 
 
 def atbatsim(n):
-    if atbatoutcomes(n) == "bip":
+    result=atbatoutcomes(n)
+    if result == "bip":
         return bipsim()
     else:
-        return atbatoutcomes(n)
+        return result
 
 
-#Test block to make sure everything is working. It does!!!!!!
+#Test block to make sure everything is working.
 for i in range(1,100):
     print(atbatsim(100))
     time.sleep(.5)
