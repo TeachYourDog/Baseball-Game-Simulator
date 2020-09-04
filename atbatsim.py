@@ -23,8 +23,8 @@ h_double_odds=0
 p_double_odds=.1
 l_double_odds=.0457
 
-h_triple_odds=0
-p_triple_odds=.1
+h_triple_odds=1
+p_triple_odds=1
 l_triple_odds=.0004
 
 h_hr_odds=0
@@ -90,16 +90,20 @@ def bipsim():
     b=double_odds=(h_double_odds*(p_double_odds/l_double_odds))*100
     c=triple_odds=(h_triple_odds*(p_triple_odds/l_triple_odds))*100
     d=hr_odds=(h_hr_odds*(p_hr_odds/l_hr_odds))*100
+    int1=a
+    int2=a+b
+    int3=a+b+c
+    int4=a+b+c+d
     biptest=random.randint(1,101)
-    if biptest <= a:
+    if biptest <= int1:
         return "single"
-    elif a < biptest <= (a+b):
+    elif int1 < biptest <= int2:
         return "double"
-    elif (a+b) < biptest <= (a+b+c):
+    elif int2 < biptest <= int3:
         return "triple"
-    elif (a+b+c) < biptest <= (a+b+c+d):
+    elif int3 < biptest <= int4:
         return "homerun"
-    elif (a+b+c+d) < biptest:
+    elif int4 < biptest:
         return "field out"
 
 
