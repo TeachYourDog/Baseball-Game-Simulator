@@ -5,6 +5,9 @@ The goal for this project is to generate a method of simulating the outcome of a
 
 The roadmap is to built it from the inside out:
   1. At bat
+    a) Handed matchups
+    b) Start from pitcher perspective
+    c) Assume random pitch types to start (Intelligent choice can be added later)
   2. Half inning
   3. Full inning
   4. Full game
