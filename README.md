@@ -1,7 +1,7 @@
 # Baseball-Game-Simulator
 
 
-The goal for this project is to generate a method of simulating the outcome of a baseball game utilizing statistics and lineups from teams. 
+The goal for this project is to generate a method of simulating the outcome of a baseball game utilizing statistics and lineups from teams. The program will generate a final score for the game along with a breakdown of what happens in each inning (write to text file). 
 
 The roadmap is to built it from the inside out:
   1. At bat
