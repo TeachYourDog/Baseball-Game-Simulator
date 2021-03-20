@@ -23,7 +23,7 @@ Each at bat can end in one of the following ways:
   
 If a ball is put in play:
   1. Caught out
-    a) Who makes the out
+    a) Who makes the out (Where the out is made)
   2. Makes it to base (Calculated using players OBP)
     b) What players are involved in the play
   
